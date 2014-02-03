@@ -1,0 +1,152 @@
+## Author: Bliser
+## Interface: 30300
+## Notes: Tauri Achievementek
+## SavedVariables: TAchik
+## Title: TauriAchik
+
+Core\LibStub\LibStub.lua
+
+Core\CustomTextures.lua
+Core\Constants.lua
+Core\Functions.lua
+Core\Core.lua
+Core\Communication.lua
+Core\OverWrite.lua
+
+Core\Support\TimedAchievementSupport.lua
+Core\Support\MergabilitySupport.lua
+Core\Support\GuildAchievementSupport.lua
+Core\Support\Transfer.lua
+Core\Support\LibCompress.lua
+Core\Functionality\Tracking.lua
+Core\Functionality\Comparison.lua
+Core\Functionality\Optimization.lua
+Core\Functionality\Uncompletion.lua
+Core\Functionality\GetDataHook.lua
+Core\Functionality\Linking.lua
+
+Quests\Kalimdor.lua
+Quests\Eastern_Kingdoms.lua
+
+Achievements\General\KockaProblem.lua
+Achievements\General\Fenykepesz.lua
+Achievements\General\EledesMestere.lua
+Achievements\General\Alkoholista.lua
+Achievements\General\AzAnyag.lua
+Achievements\General\AzEnNapom.lua
+Achievements\General\BigMac.lua
+Achievements\General\CsakNemTeAchi.lua
+Achievements\General\DalaranAviatikus.lua
+Achievements\General\DuplaSzivarvany.lua
+Achievements\General\Haljmeg.lua
+Achievements\General\OnlinePlayersAchievements.lua
+Achievements\General\RayOfDarkness.lua
+Achievements\General\SpeedClick.lua
+Achievements\General\StylistMeleg.lua
+Achievements\General\Hellosziavagyok.lua
+Achievements\General\JawsBosszuja.lua
+Achievements\General\YouTouchMyTralalalala.lua
+Achievements\General\Ugri.lua
+Achievements\General\SzaguldasPorcheSzerelem.lua
+Achievements\General\Serpenyo.lua
+Achievements\General\OroszRulett.lua
+Achievements\General\Hopuskas.lua
+Achievements\General\KozszolgaloFelcser.lua
+Achievements\General\ThankPlayerAchievements.lua
+Achievements\General\Postas.lua
+Achievements\General\Robotkodo.lua
+Achievements\General\Broker.lua
+Achievements\General\Forgalmisav.lua
+Achievements\General\Maelstrom.lua
+Achievements\General\Ottvagyunkmar.lua
+Achievements\General\SaluteMagyar.lua
+Achievements\General\TauriPoints.lua
+Achievements\General\AfkCity.lua
+Achievements\General\CsakFlex.lua
+Achievements\General\Freeze.lua
+Achievements\General\MyHorse.lua
+
+Achievements\Player vs Player\General\BGAchievements.lua
+Achievements\Player vs Player\General\Csatazuzo.lua
+Achievements\Player vs Player\General\Felcser.lua
+Achievements\Player vs Player\General\HeroNapja.lua
+Achievements\Player vs Player\General\Rovidt.lua
+Achievements\Player vs Player\General\Sorozatgyilkos.lua
+Achievements\Player vs Player\General\Szarnyasokfejvadasza.lua
+Achievements\Player vs Player\General\DeadLooter.lua
+Achievements\Player vs Player\General\EndlessCombat.lua
+Achievements\Player vs Player\General\Stranglethorn.lua
+
+Achievements\Player vs Player\Warsong Gulch\FlagVsFlag.lua
+Achievements\Player vs Player\Warsong Gulch\HiroshimaGulch.lua
+Achievements\Player vs Player\Warsong Gulch\KellAHonor.lua
+Achievements\Player vs Player\Warsong Gulch\Osszpontositott.lua
+Achievements\Player vs Player\Warsong Gulch\TeamFortress.lua
+
+Achievements\Player vs Player\Arathi Basin\ArathiQuickCap.lua
+Achievements\Player vs Player\Arathi Basin\JamesBasin.lua
+Achievements\Player vs Player\Arathi Basin\BuffBasin.lua
+
+Achievements\Player vs Player\SotA\Baywatch.lua
+Achievements\Player vs Player\SotA\Husdaralo.lua
+Achievements\Player vs Player\SotA\Carmageddon.lua
+
+Achievements\Player vs Player\Alterac Valley\Jenkins.lua
+
+
+Achievements\Player vs Player\Eye of the Storm\FussForest.lua
+
+Achievements\Player vs Player\Wintergrasp\HarcmezeiKonyhamuvesz.lua
+
+Achievements\Quest\LoremasterBreakdown.lua
+Achievements\Quest\LoremasterMeta.lua
+Achievements\Quest\Level10.lua
+Achievements\Quest\Level20.lua
+Achievements\Quest\Level30.lua
+Achievements\Quest\Level40.lua
+Achievements\Quest\Level50.lua
+Achievements\Quest\Level60.lua
+Achievements\Quest\Pedobear.lua
+
+Achievements\Class\ShamanClassAchievements.lua
+Achievements\Class\WarlockClassAchievements.lua
+
+Achievements\Dungeon and Raid\Dungeon General\EtiopKisgyerek.lua
+Achievements\Dungeon and Raid\Dungeon General\Haladjunk.lua
+Achievements\Dungeon and Raid\Dungeon General\RongyosJoe.lua
+Achievements\Dungeon and Raid\Dungeon General\RaidersOfTheLostInstances.lua
+
+Achievements\Dungeon and Raid\Dungeon\AnubeJump.lua
+Achievements\Dungeon and Raid\Dungeon\ControlledDeconstruction.lua
+Achievements\Dungeon and Raid\Dungeon\HalalosAjandek.lua
+Achievements\Dungeon and Raid\Dungeon\VisszaAhonnan.lua
+Achievements\Dungeon and Raid\Dungeon\TakardSzemed.lua
+Achievements\Dungeon and Raid\Dungeon\SuperGauntlet.lua
+Achievements\Dungeon and Raid\Dungeon\SzentCsapas.lua
+Achievements\Dungeon and Raid\Dungeon\Slowmotion.lua
+Achievements\Dungeon and Raid\Dungeon\ReflectionPortals.lua
+Achievements\Dungeon and Raid\DungeonGyujto.lua
+
+Achievements\Dungeon and Raid\Raid\Fazos.lua
+Achievements\Dungeon and Raid\Raid\NemArad.lua
+Achievements\Dungeon and Raid\Raid\Kapitany.lua
+Achievements\Dungeon and Raid\Raid\Verfolt.lua
+Achievements\Dungeon and Raid\Raid\Bacikerulo.lua
+Achievements\Dungeon and Raid\Raid\Gazak.lua
+Achievements\Dungeon and Raid\Raid\PestisBeosztok.lua
+
+Achievements\Arena\ArenaAchievements.lua
+Achievements\Arena\QuickArena.lua
+Achievements\Arena\ArenaGyujto.lua
+Achievements\Arena\KicsitMegbecsuli.lua
+
+Achievements\Guild\Gbmoney.lua
+Achievements\Guild\GuildAchievements.lua
+
+Achievements\Titkos\MernokUr.lua
+Achievements\Titkos\Kussolja.lua
+Achievements\Titkos\Firstrun.lua
+Achievements\Titkos\Pentek.lua
+Achievements\Titkos\Everydayimshufflin.lua
+Achievements\Titkos\Csillapodjale.lua
+Achievements\Titkos\Achievementwhore.lua
