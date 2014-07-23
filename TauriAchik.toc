@@ -1,5 +1,5 @@
 ## Author: Bliser
-## Interface: 30300
+## Interface: 43400
 ## Notes: Tauri Achievementek
 ## SavedVariables: TAchik
 ## Title: TauriAchik

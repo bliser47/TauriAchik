@@ -2,6 +2,8 @@
 function TA:AddAchievement_ThankPlayerAchievements()
 
     local function THANKPLAYER(tbl,event, ...)
+		local arg1 = select(1,...)
+		local arg2 = select(2,...)
 	    if event == "CHAT_MSG_WHISPER_INFORM" then
 		    arg2 = gsub(arg2,".Tauri","")
             if arg2 == tbl.name or tContains(tbl.altNames,arg2) then

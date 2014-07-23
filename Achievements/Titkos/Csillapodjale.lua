@@ -17,10 +17,12 @@ function TA:AddAchievement_Csillap()
 				events = { "CHAT_MSG_CHANNEL" , "CHAT_MSG_YELL" , "CHAT_MSG_SAY" , "CHAT_MSG_WHISPER_INFORM" , "CHAT_MSG_GUILD" },
 				objective =
 				function(tbl,event,...)
-				    if event == "CHAT_MSG_WHISPER_INFORM" then
-			            return arg1:find("%*%*%*%*")
+					if arg1 then
+						if event == "CHAT_MSG_WHISPER_INFORM" then
+							return arg1:find("%*%*%*%*")
+						end
+						return arg1:find("%*%*%*%*") and arg2 == UnitName("player")
 					end
-					return arg1:find("%*%*%*%*") and arg2 == UnitName("player")
 				end,
 				key = "CSILLAPC1",
 			},

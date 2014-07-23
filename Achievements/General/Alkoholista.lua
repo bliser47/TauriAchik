@@ -2,7 +2,8 @@
 function TA:AddAchievement_Alkoholista()
 
 	local function ALKOHOLISTA(tbl,event, ...)
-        return ( arg1:find("drunk") or arg1:find("smashed") ) and arg1:find("You") and date("%w") == tbl.needDay
+		local arg1 = select(1,...)
+        return arg1 and ( arg1:find("drunk") or arg1:find("smashed") ) and arg1:find("You") and date("%w") == tbl.needDay
     end
 
 	TA:AddAchievement(
@@ -86,7 +87,8 @@ function TA:AddAchievement_Alkoholista()
 			    events = "CHAT_MSG_SYSTEM",
 				objective =
 				function(tbl,event,...)
-                    return arg1:find("You") and ( arg1:find("drunk") or arg1:find("smashed") )
+					local arg1 = select(1,...)
+                    return arg1 and arg1:find("You") and ( arg1:find("drunk") or arg1:find("smashed") )
 				end,
 	            activate = "STOHLC2",
                 key = "STOHLC1",
@@ -126,7 +128,8 @@ function TA:AddAchievement_Alkoholista()
 			    events = "CHAT_MSG_SYSTEM",
 				objective =
 				function(tbl,event,...)
-                    return arg1:find("You") and ( arg1:find("drunk") or arg1:find("smashed") )
+					local arg1 = select(1,...)
+                    return arg1 and arg1:find("You") and ( arg1:find("drunk") or arg1:find("smashed") )
 				end,
 	            activate = "STOHL2C2",
                 key = "STOHL2C1",

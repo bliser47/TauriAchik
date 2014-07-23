@@ -244,9 +244,9 @@ function TA:GetAchievementDependentInfo(achi,race,sex)
 	points = achi["points"..f..s..r] or achi["points"..f..s] or achi["points"..f..r] or achi["points"..r..s] or achi.points
 	if achi.raceDependent then
 	    if achi.sexDependent then
-	        texture = TAchik_CustomIcons[pfaction][race][s][achi.key]
+	        --texture = TAchik_CustomIcons[pfaction][race][s][achi.key]
 		else
-		    texture = TAchik_CustomIcons[pfaction][race][achi.key]
+		    --texture = TAchik_CustomIcons[pfaction][race][achi.key]
 		end
 	else
 	    texture = achi["texture"..f..s] or achi["texture"..f] or achi["texture"..s] or achi.texture
@@ -314,7 +314,7 @@ function TA:AddAchievement(tbl)
 		end
 	end
 
-	if tbl.category then
+	if tbl.category ~= nil then
 	    if TA.cats[tbl.category] then
 		    if tbl.realm then
 		        if tContains(tbl.realm,GetRealmName()) then
@@ -360,6 +360,9 @@ function TA:AddAchievement(tbl)
 			else
 		        tinsert(TA.cats[tbl.category].achis,TA_Achi_ID);
 		    end
+		else
+			TA_Achi_ID = TA_Achi_ID + 1;
+			return false
 		end
 	end
 
@@ -1371,31 +1374,32 @@ local function Initialize()
     ------------------------ Fun Achievements ----------------------
 	TA_FUN = TA:AddCategory("Általános ")
 	    TA_FUN_GENERAL= TA:AddCategory("Szórakoztató ",TA_FUN)
-	    TA_FUN_MAILBOX = TA:AddCategory("Postaládás ",TA_FUN)
-		TA_FUN_VISITOR = TA:AddCategory("Látogatós ",TA_FUN)
+	    --TA_FUN_MAILBOX = TA:AddCategory("Postaládás ",TA_FUN)
+		--TA_FUN_VISITOR = TA:AddCategory("Látogatós ",TA_FUN)
 	------------------------ Fun Achievements ----------------------
 
 	------------------------ PvP Achievements ----------------------
-	TA_PVP = TA:AddCategory("Player vs Player ")
-	    TA_PVP_GENERAL = TA:AddCategory("Általános ",TA_PVP)
-	    TA_PVP_WSG = TA:AddCategory("Warsong Gulch ",TA_PVP)
-	    TA_PVP_AB = TA:AddCategory("Arathi Basin ",TA_PVP)
-	    TA_PVP_EOS = TA:AddCategory("Eye of the Storm ",TA_PVP)
+	--TA_PVP = TA:AddCategory("Player vs Player ")
+	    --TA_PVP_GENERAL = TA:AddCategory("Általános ",TA_PVP)
+	    --TA_PVP_WSG = TA:AddCategory("Warsong Gulch ",TA_PVP)
+	    --TA_PVP_AB = TA:AddCategory("Arathi Basin ",TA_PVP)
+	    --TA_PVP_EOS = TA:AddCategory("Eye of the Storm ",TA_PVP)
 	    --TA_PVP_AV = TA:AddCategory("Alterac Valley ",TA_PVP)
-	    TA_PVP_SOTA = TA:AddCategory("Strand of the Ancients ",TA_PVP)
-	   -- TA_PVP_IOC = TA:AddCategory("Isle of Conquest ",TA_PVP)
+	    --TA_PVP_SOTA = TA:AddCategory("Strand of the Ancients ",TA_PVP)
+	    --TA_PVP_IOC = TA:AddCategory("Isle of Conquest ",TA_PVP)
 	    --TA_PVP_WG = TA:AddCategory("Wintergrasp ",TA_PVP)
 	------------------------ PvP Achievements ----------------------
 
 	------------------------ PvE Achievements ----------------------
-	TA_PVE = TA:AddCategory("Dungeon és Raid ")
-	    TA_PVE_GENERAL = TA:AddCategory("Általános ",TA_PVE)
-	    TA_PVE_DUNG = TA:AddCategory("Dungeon ",TA_PVE)
+	--TA_PVE = TA:AddCategory("Dungeon és Raid ")
+	   -- TA_PVE_GENERAL = TA:AddCategory("Általános ",TA_PVE)
+	   -- TA_PVE_DUNG = TA:AddCategory("Dungeon ",TA_PVE)
 	    --TA_PVE_RAID10 = TA:AddCategory("Raid (10 fös) ",TA_PVE)
 	    --TA_PVE_RAID25 = TA:AddCategory("Raid (25 fös) ",TA_PVE)
     ------------------------ PvE Achievements ----------------------
 
     ------------------------ Quest Achievements ----------------------
+	--[[
 	TA_QUESTS = TA:AddCategory("Küldetések ")
 	    TA_QUESTS_GENERAL = TA:AddCategory("Általános ",TA_QUESTS)
 	    TA_QUESTS_GENERAL_10 = TA:AddCategory("LvL 1-10",TA_QUESTS)
@@ -1407,19 +1411,16 @@ local function Initialize()
 	    TA_QUESTS_CAPITALS = TA:AddCategory("Fövárosok ",TA_QUESTS)
 	    TA_QUESTS_KALIMDOR = TA:AddCategory("Kalimdor ",TA_QUESTS)
         TA_QUESTS_EASTERN_KINGDOMS = TA:AddCategory("Eastern Kingdoms ",TA_QUESTS)
+	]]--
 	------------------------ Quest Achievements ----------------------
 
-    ------------------------ Guild Achievements ----------------------
-	TA_GUILD = TA:AddCategory("Guild ")
-	------------------------ Guild Achievements ----------------------
-
 	------------------------ Arena Achievements ----------------------
-	TA_ARENA = TA:AddCategory("Aréna ")
-	    TA_ARENA_SETUP = TA:AddCategory("Párosítások ",TA_ARENA)
+	--TA_ARENA = TA:AddCategory("Aréna ")
+	    --TA_ARENA_SETUP = TA:AddCategory("Párosítások ",TA_ARENA)
 	------------------------ Arena Achievements ----------------------
 
 	----------------------- Class Achievements ---------------------
-	TA_CLASS = TA:AddCategory("Kaszt ")
+	--TA_CLASS = TA:AddCategory("Kaszt ")
 	    --TA_CLASS_DK = TA:AddCategory("Death Knight ",TA_CLASS)
 	    --TA_CLASS_DRUID = TA:AddCategory("Druid ",TA_CLASS)
 	    --TA_CLASS_HUNTER = TA:AddCategory("Hunter ",TA_CLASS)
@@ -1434,7 +1435,7 @@ local function Initialize()
 	----------------------- Class Achievements ---------------------
 
     ------------------------ Hidden Achievements ----------------------
-	TA_HIDDEN = TA:AddCategory("Titkos")
+	--TA_HIDDEN = TA:AddCategory("Titkos")
 	------------------------ Hidden Achievements ----------------------
 
 end
@@ -1481,6 +1482,8 @@ local function AddAchievements()
     TAchik_Print("Adding TauriAchievements","debug")
 
 	TA:AddAchievement_KockaProblem()
+	
+	--[[
     TA:AddAchievement_AzEnNapom()
     TA:AddAchievement_Alkoholista()
     TA:AddAchievement_AzAnyag()
@@ -1515,8 +1518,8 @@ local function AddAchievements()
 	TA:AddAchievement_MyHorse()
 	TA:AddAchievement_Freeze()
 	TA:AddAchievement_CsakFlex()
-
-
+	
+	]]--
 
 	-- Classes --
 		--Shaman--
@@ -1527,7 +1530,7 @@ local function AddAchievements()
 
 
     -- Quests --
-
+	--[[
 	TA:AddAchievement_Level10()
 	TA:AddAchievement_Level20()
 	TA:AddAchievement_Level30()
@@ -1619,9 +1622,9 @@ local function AddAchievements()
 	TA:AddAchievement_Everydayimshufflin()
 	TA:AddAchievement_AchiWhore()
 
-
-
 	TA:AddAchievement_TauriPoints()
+	
+	]]--
 
     TAchik_Print("Addition of TauriAchievements finished","debug")
     TA.OnEvent(nil,"PLAYER_ENTERING_WORLD",nil)

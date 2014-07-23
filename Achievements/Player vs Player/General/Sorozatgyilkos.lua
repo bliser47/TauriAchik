@@ -2,7 +2,7 @@
 function TA:AddAchievement_Sorozatgyilkos()
 
 	local function SOROZATV(tbl)
-        return tbl.criteriaFunction()
+        return select(2,tbl.criteriaFunction())
     end
 
     local function SOROZAT(tbl,event,...)

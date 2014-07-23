@@ -25,7 +25,8 @@ function TA:AddAchievement_Forgalmisav()
                 				break
             				end
         				end
-	        			return arg1:find("You slap") and arg2 == UnitName("player") and ( arg1:find(guildMaster) or (arg1:find("yourself") and arg2 == guildMaster) )
+						local arg1 = select(1,...)
+	        			return arg1 and arg1:find("You slap") and arg2 == UnitName("player") and ( arg1:find(guildMaster) or (arg1:find("yourself") and arg2 == guildMaster) )
 					end
 				end,
 				key = "FSAVC1",

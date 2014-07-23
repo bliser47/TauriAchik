@@ -14,17 +14,18 @@ function TA:AddAchievement_Pentek()
 		criteria =
 	    {
 			{
-				events = { "CHAT_MSG_CHANNEL" , "CHAT_MSG_YELL" , "CHAT_MSG_SAY" , "CHAT_MSG_WHISPER_INFORM" , "CHAT_MSG_GUILD" },
+				events = { "CHAT_MSG_YELL" , "CHAT_MSG_YELL" , "CHAT_MSG_SAY" , "CHAT_MSG_WHISPER_INFORM" , "CHAT_MSG_GUILD" },
 				objective =
 				function(tbl,event,...)
-                    if arg1:find("pentek") or arg1:find("péntek") then
-	                    if ( arg1:find("vegre") or arg1:find("végre") or arg1:find("hurra") or arg1:find("hurrá") or arg1:find("van") or arg1:find("yay") or arg1:find("fasza") or arg1:find("jó") or arg1:find("jo")) then
-	                        if event == "CHAT_MSG_WHISPER_INFORM" then
-							    return select(1, CalendarGetDate()) == 6
+					local arg1 = select(1,...)
+					if arg1 and arg1:find("pentek") or arg1:find("péntek") then
+						if ( arg1:find("vegre") or arg1:find("végre") or arg1:find("hurra") or arg1:find("hurrá") or arg1:find("van") or arg1:find("yay") or arg1:find("fasza") or arg1:find("jó") or arg1:find("jo")) then
+							if event == "CHAT_MSG_WHISPER_INFORM" then
+								return select(1, CalendarGetDate()) == 6
 							end
 							return select(1, CalendarGetDate()) == 6 and arg2 == UnitName("player")
-		                end
-		            end
+						end
+					end
 				end,
 				key = "PENTEKC1",
 			},
@@ -76,7 +77,8 @@ function TA:AddAchievement_Pentek()
 				events = "CHAT_MSG_SYSTEM",
 				objective =
 				function(tbl,event,...)
-				    return arg1:find("Karaktered elmentve")
+					local arg1 = select(1,...)
+				    return arg1 and arg1:find("Karaktered elmentve")
 				end,
 				key = "VIAJPIC1",
 			},

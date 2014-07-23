@@ -23,7 +23,8 @@ function TA:AddAchievement_HelloSzia()
 				function(tbl,event,...)
 					if event == "CHAT_MSG_TEXT_EMOTE" then
 						local targetName = UnitName("target")
-                        if UnitIsPlayer("target") and arg1:find("You greet") and targetName ~= UnitName("player") then
+						local arg1 = select(1,...)
+                        if UnitIsPlayer("target") and arg1 and  arg1:find("You greet") and targetName ~= UnitName("player") then
                             if not(tContains(tbl.variable,targetName)) then
                                 tinsert(tbl.variable,targetName)
 							end
@@ -53,7 +54,8 @@ function TA:AddAchievement_HelloSzia()
 				events = "CHAT_MSG_TEXT_EMOTE",
 				objective =
 				function(tbl,event,...)
-                    return UnitIsPlayer("target") and arg1:find("You greet") and UnitName("target") == UnitName("player")
+					local arg1 = select(1,...)
+                    return UnitIsPlayer("target") and arg1 and arg1:find("You greet") and UnitName("target") == UnitName("player")
 			    end,
 				key = "HSV2C1",
 			},
@@ -76,7 +78,8 @@ function TA:AddAchievement_HelloSzia()
 				events = "UI_INFO_MESSAGE",
 				objective =
 				function(tbl,event,...)
-                    return UnitDebuff("player",GetSpellInfo(26013)) and arg1:find("Deserter")
+					local arg1 = select(1,...)
+                    return UnitDebuff("player",GetSpellInfo(26013)) and arg1 and arg1:find("Deserter")
 			    end,
 				key = "VONAKODOC1",
 			},

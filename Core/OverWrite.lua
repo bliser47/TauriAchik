@@ -8,6 +8,7 @@
 ]]--
 
 local TA = LibStub:GetLibrary("TauriAchikLib")
+local numtabs;
 
 function TAchik_OverWriteScript()
     -- Custom Functions --
@@ -15,25 +16,25 @@ function TAchik_OverWriteScript()
     local BaseTabWasLoaded = false
     function ShowTauriAchik(self,button)
         if ( achievementFunctions ~= COMPARISON_ACHIEVEMENT_FUNCTIONS and achievementFunctions ~= COMPARISON_STAT_FUNCTIONS ) then
-           AchievementFrameBaseTab_OnClick(3)
+           AchievementFrameBaseTab_OnClick(numtabs)
            BaseTabWasLoaded = true
         elseif TA.comparisonData.comparisonEnded then
             if BaseTabWasLoaded then
-                AchievementFrameComparisonTab_OnClick (3)
+                AchievementFrameComparisonTab_OnClick (numtabs)
             else
                 AchievementFrameBaseTab_OnClick(1)
                 BaseTabWasLoaded = true
-                AchievementFrameComparisonTab_OnClick (3)
+                AchievementFrameComparisonTab_OnClick (numtabs)
             end
         end
     end
 
     -- Custom Functions --
-
-    local numtabs = 0
+	numtabs = 0
     repeat
         numtabs = numtabs + 1
-    until (not _G["AchievementFrameTab"..numtabs])
+    until (not _G["AchievementFrameTab"..numtabs] )
+	
 
     TauriAchikTab = CreateFrame("Button", "AchievementFrameTab"..numtabs, AchievementFrame, "AchievementFrameTabButtonTemplate")
     TauriAchikTab:SetText(CA_ADDON_NAME)
@@ -144,11 +145,11 @@ function TAchik_OverWriteScript()
 		_G[frame:GetName() .. "Name"]:SetText(name);
 
 		local shield = _G[frame:GetName() .. "Shield"];
-		AchievementShield_SetPoints(points, shield.points, GameFontNormal, GameFontNormalSmall);
+		--AchievementShield_SetPoints(points, shield.points, GameFontNormal, GameFontNormalSmall);
 		if ( points == 0 ) then
 			shield.icon:SetTexture([[Interface\AchievementFrame\UI-Achievement-Shields-NoPoints]]);
 		else
-			shield.icon:SetTexture([[Interface\AchievementFrame\UI-Achievement-Shields]]);
+			--shield.icon:SetTexture([[Interface\AchievementFrame\UI-Achievement-Shields]]);
 		end
 
 		_G[frame:GetName() .. "IconTexture"]:SetTexture(icon);
@@ -697,7 +698,7 @@ function TAchik_OverWriteScript()
 	local curr=GetAddOnCPUUsage("TauriAchik")
 	TAchik["profilingUpdateRate"] = TAchik["profilingUpdateRate"] or 5
 	WorldFrame:HookScript("OnUpdate",function()
-		if (AchievementFrame:IsVisible() and AchievementFrameTab3:IsEnabled()==0) then  -- valahova be kellett tennem a menü elrejtését mikor nem a TA fül van nyitva
+		if (AchievementFrame:IsVisible() and _G["AchievementFrameTab"..numtabs]:IsEnabled()==0) then  -- valahova be kellett tennem a menü elrejtését mikor nem a TA fül van nyitva
 			TAchik_MenuFrame:Show()
 		else
 			TAchik_MenuFrame:Hide()
@@ -716,11 +717,11 @@ function TAchik_OverWriteScript()
 				tinsert(TAchik["profilingLog"],date().." | Delta: "..curr-prev1.."ms | Pos: "..GetSubZoneText().." | Combat: "..tostring(InCombatLockdown()).." | Events: "..TA:GetEventsCalled())
 			    TA:ClearCalledEvents();
 			end
-			if (AchievementFrame:IsVisible() and AchievementFrameTab3:IsEnabled()==0) then
+			if (AchievementFrame:IsVisible() and _G["AchievementFrameTab"..numtabs]:IsEnabled()==0) then
 				profilerFontString:Show()
 				profilerFontString:SetText("Total CPU Usage: "..(curr).."ms\n    Previous:\n        "..(prev1).."ms\n        "..(prev2).."ms\n        "..(prev3).."ms\n    Delta:\n        "..curr-prev1.."ms\n        "..prev1-prev2.."ms\n        "..prev2-prev3.."ms\n    Average:\n        "..avg.."ms")
 			end
-		elseif AchievementFrameTab3:IsEnabled()==1 or not(TAchik["profiling"]) then
+		elseif _G["AchievementFrameTab"..numtabs]:IsEnabled()==1 or not(TAchik["profiling"]) then
 			profilerFontString:Hide()
 		end
 	end)

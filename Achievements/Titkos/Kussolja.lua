@@ -17,7 +17,8 @@ function TA:AddAchievement_Kussolja()
 				events = "UI_ERROR_MESSAGE",
 				objective =
 				function(tbl,event,...)
-				    return arg1:find("kell")
+					local arg1 = select(1,...)
+				    return arg1 and arg1:find("kell")
 				end,
 				key = "KSLJ",
 			},
@@ -44,7 +45,8 @@ function TA:AddAchievement_Kussolja()
 				duration = 600,
 				objective =
 				function(tbl,event,...)
-				    if arg1 == "Duel cancelled." then
+					local arg1 = select(1,...)
+				    if arg1 and arg1 == "Duel cancelled." then
 					    TA:StartTimedAchievement(tbl)
 						tbl.variable = tbl.variable + 1
 						return tbl.variable >= 5

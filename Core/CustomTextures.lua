@@ -61,7 +61,19 @@
                 ["FRIZURAS"] = "Interface\\Icons\\achievement_character_gnome_female"
             },
 			["QFLY1"] = "Interface\\Icons\\ability_mount_ebongryphon"
-        }
+        },
+		["Worgen"] =
+		{
+			["Male"] =
+			{
+				["FRIZURAS"] = "Interface\\Icons\\race_worgen_male"
+			},
+			["Female"] =
+			{
+				["FRIZURAS"] = "Interface\\Icons\\race_worgen_female"
+			},
+			["QFLY1"] = "Interface\\Icons\\ability_mount_ebongryphon"
+		}
     },
     ["Horde"]  =
     {
